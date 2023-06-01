@@ -1,16 +1,16 @@
 <p align="center">
   <img src="https://github.com/AceRex/seras-backend/assets/37227404/e4c8f60f-e143-49af-b7d9-f066a9479d22" width='200' alt='seras-logo' />
   <p>
-<h2>SERAS AWARD BACKEND --PEL MANAGER</h2>
-
-
-<h2>built on</h2>
 
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
+<h2>SERAS AWARD BACKEND --PEL MANAGER</h2>
+
+
+<h2>built on</h2>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
