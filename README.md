@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/AceRex/seras-backend/assets/37227404/e4c8f60f-e143-49af-b7d9-f066a9479d22" width='200' alt='seras-logo' />
+  <img src="https://github.com/AceRex/seras-backend/assets/37227404/e4c8f60f-e143-49af-b7d9-f066a9479d22" width='300' alt='seras-logo' />
   <p>
 
 
