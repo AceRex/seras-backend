@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { OrganisationRegistrationService } from './organisation-registration.service';
 import { OrgReg } from './organisation-registration.schema';
 import { CreateOrgRegDto } from './organisation-registration.dto';
@@ -26,5 +26,13 @@ export class OrganisationRegistrationController {
     id: string,
   ): Promise<OrgReg> {
     return this.orgReg.findOrg(id);
+  }
+
+  @Delete(':id')
+  async deleteOrg(
+    @Param('id')
+    id: string,
+  ): Promise<OrgReg>{
+    return this.orgReg.deleteOrg(id)
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { OrgReg } from './organisation-registration.schema';
 import * as mongoose from 'mongoose';
@@ -21,6 +21,11 @@ export class OrganisationRegistrationService {
 
   async findOrg(id: string): Promise<OrgReg> {
     const res = await this.orgModel.findById(id);
+    return res;
+  }
+
+  async deleteOrg(id: string): Promise<OrgReg> {
+    const res = await this.orgModel.findByIdAndDelete(id);
     return res;
   }
 
