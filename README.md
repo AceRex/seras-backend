@@ -7,7 +7,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-<h2>SERAS AWARD BACKEND --PEL MANAGER</h2>
+<h2 align="center">SERAS AWARD BACKEND --PEL MANAGER</h2>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
