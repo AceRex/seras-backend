@@ -9,9 +9,6 @@
 
 <h2>SERAS AWARD BACKEND --PEL MANAGER</h2>
 
-
-<h2>built on</h2>
-
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
