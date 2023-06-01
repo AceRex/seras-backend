@@ -5,12 +5,41 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 })
 export class OrgReg {
   @Prop()
-  title: string;
+  Country: string;
 
   @Prop()
-  description: string;
+  NameOfBusinessOrganization: string;
 
   @Prop()
-  author: string;
+  AddressOfBusinessOrganization: string;
+
+  @Prop()
+  NameOfCEOMD: string;
+
+  @Prop()
+  MultinationalSituated: string;
+
+  @Prop()
+  OrganisationVision: string;
+
+  @Prop()
+  CSRSustainabiltyPolicy: string;
+
+  // if true {file upload}
+
+  @Prop()
+  ReportingStandardsAdopted: string[];
+
+  @Prop()
+  AreasSustainabilityPolicyAddress: string[];
+
+  @Prop()
+  GoalsAddress: string;
+  
+  @Prop()
+  DecisionsAreTakenBy: string[];
+
+  @Prop()
+  WhatDeterminesTheAmountOfFunds: string[]
 }
 export const OrgRegSchema = SchemaFactory.createForClass(OrgReg);
