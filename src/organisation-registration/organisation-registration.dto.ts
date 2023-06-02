@@ -3,6 +3,8 @@ export class CreateOrgRegDto {
 
   readonly NameOfBusinessOrganization: string;
 
+  readonly EmailOfBusinessOrganization: string;
+
   readonly AddressOfBusinessOrganization: string;
 
   readonly NameOfCEOMD: string;

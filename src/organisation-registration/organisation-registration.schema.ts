@@ -11,6 +11,9 @@ export class OrgReg {
   NameOfBusinessOrganization: string;
 
   @Prop()
+  EmailOfBusinessOrganization: string;
+
+  @Prop()
   AddressOfBusinessOrganization: string;
 
   @Prop()
