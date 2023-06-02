@@ -22,4 +22,6 @@ export class CreateOrgRegDto {
   readonly DecisionsAreTakenBy: string[];
 
   readonly WhatDeterminesTheAmountOfFunds: string[];
+
+  readonly AwardEntry: string[];
 }

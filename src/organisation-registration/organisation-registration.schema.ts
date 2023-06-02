@@ -25,8 +25,6 @@ export class OrgReg {
   @Prop()
   CSRSustainabiltyPolicy: string;
 
-  // if true {file upload}
-
   @Prop()
   ReportingStandardsAdopted: string[];
 
@@ -40,6 +38,9 @@ export class OrgReg {
   DecisionsAreTakenBy: string[];
 
   @Prop()
-  WhatDeterminesTheAmountOfFunds: string[]
+  WhatDeterminesTheAmountOfFunds: string[];
+
+  @Prop()
+  AwardEntry: string[]
 }
 export const OrgRegSchema = SchemaFactory.createForClass(OrgReg);
