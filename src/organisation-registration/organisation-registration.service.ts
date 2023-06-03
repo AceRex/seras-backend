@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { OrgReg } from './organisation-registration.schema';
 import * as mongoose from 'mongoose';
@@ -12,16 +12,16 @@ export class OrganisationRegistrationService {
 
   async findAll(query: ExpressQuery): Promise<OrgReg[]> {
     const keyword = query.keyword
-    ? {
-        NameOfBusinessOrganization: {
+      ? {
+          NameOfBusinessOrganization: {
             $regex: query.keyword,
-            $options: 'i'
+            $options: 'i',
+          },
         }
-    } : {};
-    const orgRegs = await this.orgModel.find({...keyword});
+      : {};
+    const orgRegs = await this.orgModel.find({ ...keyword });
     return orgRegs;
   }
-  
 
   async createNewOrg(newOrg: OrgReg): Promise<OrgReg> {
     const res = await this.orgModel.create(newOrg);
@@ -33,9 +33,17 @@ export class OrganisationRegistrationService {
     return res;
   }
 
+  async updateOrg(newOrg: OrgReg): Promise<OrgReg> {
+    const res = await this.orgModel.findOneAndUpdate(
+      { NameOfBusinessOrganization: newOrg.NameOfBusinessOrganization },
+      { $push: { AwardEntry: newOrg } },
+      {new: true}
+    );
+    return res;
+  }
+
   async deleteOrg(id: string): Promise<OrgReg> {
     const res = await this.orgModel.findByIdAndDelete(id);
     return res;
   }
-
 }

@@ -4,6 +4,7 @@ import {
   Post,
   Query,
   Body,
+  Put,
   Param,
   Delete,
 } from '@nestjs/common';
@@ -20,7 +21,6 @@ export class OrganisationRegistrationController {
   findAll(@Query() query: ExpressQuery): Promise<OrgReg[]> {
     return this.orgReg.findAll(query);
   }
-  
 
   @Post()
   async createNewOrg(
@@ -36,6 +36,17 @@ export class OrganisationRegistrationController {
     id: string,
   ): Promise<OrgReg> {
     return this.orgReg.findOrg(id);
+  }
+
+  @Put()
+  async updateOrg(
+    @Body()
+    newOrgDto: CreateOrgRegDto,
+  ): Promise<OrgReg> {
+    const newOrg: OrgReg = {
+      ...newOrgDto,
+    };
+    return this.orgReg.updateOrg(newOrg);
   }
 
   @Delete(':id')
