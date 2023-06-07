@@ -26,6 +26,7 @@ export class OrganisationRegistrationController {
   async createNewOrg(
     @Body()
     newOrg: CreateOrgRegDto,
+
   ): Promise<OrgReg> {
     return this.orgReg.createNewOrg(newOrg);
   }
