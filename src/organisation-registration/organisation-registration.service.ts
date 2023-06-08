@@ -10,8 +10,8 @@ import { InjectMailchimp } from '@mindik/mailchimp-nestjs';
 export class OrganisationRegistrationService {
   constructor(
     @InjectModel(OrgReg.name) private orgModel: mongoose.Model<OrgReg>,
-    @InjectMailchimp()
-    private readonly mailchimpService: MailchimpService,
+    // @InjectMailchimp()
+    // private readonly mailchimpService: MailchimpService,
   ) {}
 
   async findAll(query: ExpressQuery): Promise<OrgReg[]> {
