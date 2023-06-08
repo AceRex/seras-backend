@@ -13,9 +13,9 @@ export class MailService {
       to: user.EmailOfBusinessOrganization,
       from: '"No Reply" <noreply@serasaward2023.com>',
       subject: 'Welcome to Nice App! Confirm your Email',
-      template: 'UserEmail',
-      context: { 
-        name: 'user.NameOfBusinessOrganization',
+      template: '/template/UserEmail',
+      context: {
+        name: user.EmailOfBusinessOrganization,
         url,
       },
     });
