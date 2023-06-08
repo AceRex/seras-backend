@@ -6,7 +6,7 @@
   "assets": [
     {
       "include": "notification/email-templates/**/*.hbs",
-      "outDir": "dist/src"
+      "outDir": "src"
     }
   ],
   "watchAssets": true

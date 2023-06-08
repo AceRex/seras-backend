@@ -26,7 +26,7 @@ MailModule = __decorate([
                     transport: {
                         host: configService.get('HOST'),
                         port: 587,
-                        secure: true,
+                        secure: false,
                         auth: {
                             user: configService.get('MAIL_USER'),
                             pass: configService.get('MAIL_PASSWORD'),
@@ -36,7 +36,7 @@ MailModule = __decorate([
                         from: '"No Reply" <noreply@serasaward2023.com>',
                     },
                     template: {
-                        dir: __dirname + '/templates',
+                        dir: __dirname.replace('dist', 'src') + '/templates',
                         adapter: new handlebars_adapter_1.HandlebarsAdapter(),
                         options: {
                             strict: true,

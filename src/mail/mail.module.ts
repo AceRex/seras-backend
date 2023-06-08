@@ -15,7 +15,7 @@ import { MailService } from './mail.service';
         transport: {
           host: configService.get('HOST'),
           port: 587,
-          secure: true,
+          secure: false,
           auth: {
             user: configService.get('MAIL_USER'),
             pass: configService.get('MAIL_PASSWORD'),
@@ -25,7 +25,7 @@ import { MailService } from './mail.service';
           from: '"No Reply" <noreply@serasaward2023.com>',
         },
         template: {
-          dir: __dirname + '/templates',
+          dir: __dirname.replace('dist', 'src') + '/templates',
           adapter: new HandlebarsAdapter(),
           options: {
             strict: true,
