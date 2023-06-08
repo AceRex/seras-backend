@@ -4,28 +4,39 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MailService } from './mail.service';
 
-
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
       isGlobal: true,
     }),
-    MailerModule.forRoot({
-      transport: 'smtps://oluwasegun.are@pelmanagers.com:NpfWjcra9VEM6R1L.sendinblue.com',
-      defaults: {
-        from: '"No Reply" <noreply@serasaward2023.com>',
-      },
-      template: {
-        dir: __dirname + './templates/UserEmail.hbs',
-        adapter: new HandlebarsAdapter(),
-        options: {
-          strict: true,
+    MailerModule.forRootAsync({
+      useFactory: (configService: ConfigService) => ({
+        transport: {
+          host: configService.get('HOST'),
+          port: 587,
+          secure: true,
+          auth: {
+            user: configService.get('MAIL_USER'),
+            pass: configService.get('MAIL_PASSWORD'),
+          },
         },
-      },
+        defaults: {
+          from: '"No Reply" <noreply@serasaward2023.com>',
+        },
+        template: {
+          dir: __dirname + '/templates',
+          adapter: new HandlebarsAdapter(),
+          options: {
+            strict: true,
+          },
+        },
+      }),
+      inject: [ConfigService],
     }),
   ],
   providers: [MailService],
   exports: [MailService],
 })
 export class MailModule {}
+

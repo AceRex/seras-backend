@@ -12,10 +12,14 @@ import { OrganisationRegistrationService } from './organisation-registration.ser
 import { OrgReg } from './organisation-registration.schema';
 import { CreateOrgRegDto } from './organisation-registration.dto';
 import { Query as ExpressQuery } from 'express-serve-static-core';
+import { MailService } from '../mail/mail.service';
 
 @Controller('organisation-registration')
 export class OrganisationRegistrationController {
-  constructor(private readonly orgReg: OrganisationRegistrationService) {}
+  constructor(
+    private readonly orgReg: OrganisationRegistrationService,
+    private readonly mailService: MailService,
+  ) {}
 
   @Get()
   findAll(@Query() query: ExpressQuery): Promise<OrgReg[]> {
@@ -26,9 +30,12 @@ export class OrganisationRegistrationController {
   async createNewOrg(
     @Body()
     newOrg: CreateOrgRegDto,
-
   ): Promise<OrgReg> {
-    return this.orgReg.createNewOrg(newOrg);
+    const createdOrg = await this.orgReg.createNewOrg(newOrg);
+
+    await this.mailService.sendUserConfirmation(newOrg);
+  
+    return createdOrg;
   }
 
   @Get(':id')

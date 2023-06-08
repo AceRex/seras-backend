@@ -2,8 +2,12 @@
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
-  "compilerOptions": {
-    "deleteOutDir": true,
-    "assets": ["mail/templates/**/*"]
-  }
+  "root": "./",
+  "assets": [
+    {
+      "include": "notification/email-templates/**/*.hbs",
+      "outDir": "dist/src"
+    }
+  ],
+  "watchAssets": true
 }

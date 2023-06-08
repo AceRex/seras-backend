@@ -7,15 +7,15 @@ export class MailService {
   constructor(private mailerService: MailerService) {}
 
   async sendUserConfirmation(user: User) {
-    const url = `example.com/auth`;
+    const url = `serasaward2023/auth`;
 
     await this.mailerService.sendMail({
-      to: user.email,
-      // from: '"Support Team" <support@example.com>', // override default from
+      to: user.EmailOfBusinessOrganization,
+      from: '"No Reply" <noreply@serasaward2023.com>',
       subject: 'Welcome to Nice App! Confirm your Email',
-      template: './confirmation', // `.hbs` extension is appended automatically
-      context: { // ✏️ filling curly brackets with content
-        name: user.name,
+      template: 'UserEmail',
+      context: { 
+        name: 'user.NameOfBusinessOrganization',
         url,
       },
     });
