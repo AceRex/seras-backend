@@ -12,7 +12,7 @@ export class MailService {
     await this.mailerService.sendMail({
       to: user.EmailOfBusinessOrganization,
       from: '"No Reply" <noreply@serasaward2023.com>',
-      subject: 'Welcome to Nice App! Confirm your Email',
+      subject: 'Thank you for Registring! We got your registraion ',
       template: './UserEmail',
       context: {
         name: user.EmailOfBusinessOrganization,

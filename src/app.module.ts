@@ -11,7 +11,7 @@ import { join } from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: ['.env.development.local', '.env.development'],
       isGlobal: true,
     }),
     
