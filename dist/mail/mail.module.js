@@ -25,7 +25,7 @@ MailModule = __decorate([
                 useFactory: (configService) => ({
                     transport: {
                         host: configService.get('HOST'),
-                        port: 587,
+                        port: 2525,
                         secure: false,
                         auth: {
                             user: configService.get('MAIL_USER'),
@@ -33,7 +33,7 @@ MailModule = __decorate([
                         },
                     },
                     defaults: {
-                        from: '"No Reply" <noreply@serasaward2023.com>',
+                        from: '"SEARAS AWARD 2023" <noreply@serasaward2023.com>',
                     },
                     template: {
                         dir: __dirname.replace('dist', 'src') + '/templates',
