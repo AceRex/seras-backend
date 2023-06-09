@@ -21,10 +21,10 @@ let MailService = class MailService {
         await this.mailerService.sendMail({
             to: user.EmailOfBusinessOrganization,
             from: '"No Reply" <noreply@serasaward2023.com>',
-            subject: 'Thank you for Registring! We got your registraion ',
+            subject: 'Thank you for Registring! We got your registration ',
             template: './UserEmail',
             context: {
-                name: user.EmailOfBusinessOrganization,
+                name: user.NameOfBusinessOrganization,
                 url,
             },
         });
