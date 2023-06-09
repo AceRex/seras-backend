@@ -25,7 +25,7 @@ MailModule = __decorate([
                 useFactory: (configService) => ({
                     transport: {
                         host: configService.get('HOST'),
-                        port: 2525,
+                        port: 25,
                         secure: false,
                         auth: {
                             user: configService.get('MAIL_USER'),
