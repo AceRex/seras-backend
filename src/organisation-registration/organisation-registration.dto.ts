@@ -42,7 +42,6 @@ export class CreateOrgRegDto {
   @IsArray()
   readonly AreasSustainabilityPolicyAddress: string[];
 
-  @IsNotEmpty()
   @IsString()
   readonly GoalsAddress: string;
 
