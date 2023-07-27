@@ -26,7 +26,6 @@ export class CreateOrgRegDto {
   @IsString()
   readonly MultinationalSituated: string;
 
-  @IsNotEmpty()
   @IsString()
   readonly OrganisationVision: string;
 
