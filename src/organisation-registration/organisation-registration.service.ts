@@ -26,7 +26,6 @@ export class OrganisationRegistrationService {
 
   async createNewOrg(newOrg: OrgReg): Promise<OrgReg> {
     const res = await this.orgModel.create(newOrg);
-
     return res;
   }
 

@@ -31,10 +31,7 @@ export class OrganisationRegistrationController {
     @Body()
     newOrg: CreateOrgRegDto,
   ): Promise<OrgReg> {
-    const createdOrg = await this.orgReg.createNewOrg(newOrg);
-
-    await this.mailService.sendUserConfirmation(newOrg);
-  
+    const createdOrg = await this.orgReg.createNewOrg(newOrg);  
     return createdOrg;
   }
 
