@@ -59,6 +59,6 @@ export class OrgReg {
   PaymentStatus: string;
 
   @Prop()
-  entryKey: string;
+  EntryKey: string;
 }
 export const OrgRegSchema = SchemaFactory.createForClass(OrgReg);
