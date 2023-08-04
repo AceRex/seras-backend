@@ -2,8 +2,7 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-
-**/.env
+seras-backend/*.env
 
 Icon
 
