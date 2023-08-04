@@ -19,10 +19,17 @@ AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({
-                envFilePath: ['.env.development.local', '.env.development'],
                 isGlobal: true,
             }),
-            mongoose_1.MongooseModule.forRoot("mongodb+srv://johnsonare2207:2I3Ke1HOwmoVxIp0@serasbackend.9ervhga.mongodb.net/?retryWrites=true&w=majority"),
+            mongoose_1.MongooseModule.forRootAsync({
+                imports: [config_1.ConfigModule],
+                inject: [config_1.ConfigService],
+                useFactory: async (config) => ({
+                    uri: config.get('DB_URI'),
+                    useUnifiedTopology: true,
+                    useNewUrlParser: true,
+                }),
+            }),
             organisation_registration_module_1.OrganisationRegistrationModule,
         ],
         controllers: [app_controller_1.AppController],
@@ -30,5 +37,4 @@ AppModule = __decorate([
     })
 ], AppModule);
 exports.AppModule = AppModule;
-console.log(process.env.DB_URI);
 //# sourceMappingURL=app.module.js.map

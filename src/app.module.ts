@@ -4,19 +4,26 @@ import { AppService } from './app.service';
 import { OrganisationRegistrationModule } from './organisation-registration/organisation-registration.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { config } from 'process';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.development.local', '.env.development'],
       isGlobal: true,
     }),
-    
-    MongooseModule.forRoot("mongodb+srv://johnsonare2207:2I3Ke1HOwmoVxIp0@serasbackend.9ervhga.mongodb.net/?retryWrites=true&w=majority"),
+
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (config: ConfigService) => ({
+        uri: config.get<string>('DB_URI'),
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+      }),
+    }),
     OrganisationRegistrationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
-console.log(process.env.DB_URI)
