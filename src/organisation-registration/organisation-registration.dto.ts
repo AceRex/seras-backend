@@ -26,7 +26,6 @@ export class CreateOrgRegDto {
   @IsString()
   readonly MultinationalSituated: string;
 
-  @IsNotEmpty()
   @IsString()
   readonly OrganisationVision: string;
 
@@ -42,8 +41,6 @@ export class CreateOrgRegDto {
   @IsArray()
   readonly AreasSustainabilityPolicyAddress: string[];
 
-  @IsNotEmpty()
-  @IsString()
   readonly GoalsAddress: string;
 
   @IsNotEmpty()
