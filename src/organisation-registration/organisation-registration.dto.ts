@@ -1,10 +1,17 @@
-import { IsArray, IsNotEmpty, IsString } from "class-validator";
+import { IsArray, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateOrgRegDto {
-
   @IsNotEmpty()
   @IsString()
   readonly Country: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly City: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly State: string;
 
   @IsNotEmpty()
   @IsString()
@@ -20,6 +27,13 @@ export class CreateOrgRegDto {
 
   @IsNotEmpty()
   @IsString()
+  readonly EntryKey: string;
+
+  @IsString()
+  readonly OtherCountriesPresent: string;
+
+  @IsNotEmpty()
+  @IsString()
   readonly NameOfCEOMD: string;
 
   @IsNotEmpty()
@@ -32,6 +46,9 @@ export class CreateOrgRegDto {
   @IsNotEmpty()
   @IsString()
   readonly CSRSustainabiltyPolicy: string;
+
+  @IsString()
+  readonly PaymentStatus: string;
 
   @IsNotEmpty()
   @IsArray()

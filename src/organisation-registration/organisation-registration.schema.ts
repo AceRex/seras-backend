@@ -36,7 +36,7 @@ export class OrgReg {
 
   @Prop()
   GoalsAddress: string;
-  
+
   @Prop()
   DecisionsAreTakenBy: string[];
 
@@ -44,6 +44,21 @@ export class OrgReg {
   WhatDeterminesTheAmountOfFunds: string[];
 
   @Prop()
-  AwardEntry: string[]
+  AwardEntry: string[];
+
+  @Prop()
+  City: string;
+
+  @Prop()
+  State: string;
+
+  @Prop()
+  OtherCountriesPresent: string;
+
+  @Prop()
+  PaymentStatus: string;
+
+  @Prop()
+  entryKey: string;
 }
 export const OrgRegSchema = SchemaFactory.createForClass(OrgReg);
