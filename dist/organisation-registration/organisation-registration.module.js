@@ -12,14 +12,12 @@ const organisation_registration_service_1 = require("./organisation-registration
 const organisation_registration_controller_1 = require("./organisation-registration.controller");
 const mongoose_1 = require("@nestjs/mongoose");
 const organisation_registration_schema_1 = require("./organisation-registration.schema");
-const mail_module_1 = require("../mail/mail.module");
 let OrganisationRegistrationModule = class OrganisationRegistrationModule {
 };
 OrganisationRegistrationModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forFeature([{ name: 'OrgReg', schema: organisation_registration_schema_1.OrgRegSchema }]),
-            mail_module_1.MailModule
         ],
         providers: [organisation_registration_service_1.OrganisationRegistrationService],
         controllers: [organisation_registration_controller_1.OrganisationRegistrationController],

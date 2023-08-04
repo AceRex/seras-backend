@@ -38,6 +38,11 @@ export declare class OrgReg {
     DecisionsAreTakenBy: string[];
     WhatDeterminesTheAmountOfFunds: string[];
     AwardEntry: string[];
+    City: string;
+    State: string;
+    OtherCountriesPresent: string;
+    PaymentStatus: string;
+    EntryKey: string;
 }
 export declare const OrgRegSchema: import("mongoose").Schema<OrgReg, import("mongoose").Model<OrgReg, any, any, any, import("mongoose").Document<unknown, any, OrgReg> & Omit<OrgReg & {
     _id: import("mongoose").Types.ObjectId;

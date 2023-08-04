@@ -3,10 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { OrganisationRegistrationModule } from './organisation-registration/organisation-registration.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MailerModule } from '@nestjs-modules/mailer';
-import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { join } from 'path';
 
 @Module({
   imports: [
@@ -15,10 +12,11 @@ import { join } from 'path';
       isGlobal: true,
     }),
     
-    MongooseModule.forRoot(process.env.DB_URI),
+    MongooseModule.forRoot("mongodb+srv://johnsonare2207:2I3Ke1HOwmoVxIp0@serasbackend.9ervhga.mongodb.net/?retryWrites=true&w=majority"),
     OrganisationRegistrationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+console.log(process.env.DB_URI)

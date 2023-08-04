@@ -16,18 +16,15 @@ exports.OrganisationRegistrationController = void 0;
 const common_1 = require("@nestjs/common");
 const organisation_registration_service_1 = require("./organisation-registration.service");
 const organisation_registration_dto_1 = require("./organisation-registration.dto");
-const mail_service_1 = require("../mail/mail.service");
 let OrganisationRegistrationController = class OrganisationRegistrationController {
-    constructor(orgReg, mailService) {
+    constructor(orgReg) {
         this.orgReg = orgReg;
-        this.mailService = mailService;
     }
     findAll(query) {
         return this.orgReg.findAll(query);
     }
     async createNewOrg(newOrg) {
         const createdOrg = await this.orgReg.createNewOrg(newOrg);
-        await this.mailService.sendUserConfirmation(newOrg);
         return createdOrg;
     }
     async findOrg(id) {
@@ -78,8 +75,7 @@ __decorate([
 ], OrganisationRegistrationController.prototype, "deleteOrg", null);
 OrganisationRegistrationController = __decorate([
     (0, common_1.Controller)('organisation-registration'),
-    __metadata("design:paramtypes", [organisation_registration_service_1.OrganisationRegistrationService,
-        mail_service_1.MailService])
+    __metadata("design:paramtypes", [organisation_registration_service_1.OrganisationRegistrationService])
 ], OrganisationRegistrationController);
 exports.OrganisationRegistrationController = OrganisationRegistrationController;
 //# sourceMappingURL=organisation-registration.controller.js.map

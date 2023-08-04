@@ -22,7 +22,7 @@ AppModule = __decorate([
                 envFilePath: ['.env.development.local', '.env.development'],
                 isGlobal: true,
             }),
-            mongoose_1.MongooseModule.forRoot(process.env.DB_URI),
+            mongoose_1.MongooseModule.forRoot("mongodb+srv://johnsonare2207:2I3Ke1HOwmoVxIp0@serasbackend.9ervhga.mongodb.net/?retryWrites=true&w=majority"),
             organisation_registration_module_1.OrganisationRegistrationModule,
         ],
         controllers: [app_controller_1.AppController],
@@ -30,4 +30,5 @@ AppModule = __decorate([
     })
 ], AppModule);
 exports.AppModule = AppModule;
+console.log(process.env.DB_URI);
 //# sourceMappingURL=app.module.js.map

@@ -69,6 +69,26 @@ __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", Array)
 ], OrgReg.prototype, "AwardEntry", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], OrgReg.prototype, "City", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], OrgReg.prototype, "State", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], OrgReg.prototype, "OtherCountriesPresent", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], OrgReg.prototype, "PaymentStatus", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], OrgReg.prototype, "EntryKey", void 0);
 OrgReg = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
