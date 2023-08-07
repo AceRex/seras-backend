@@ -15,7 +15,7 @@ async function bootstrap() {
     app.useGlobalPipes(new common_1.ValidationPipe());
     const configService = app.get(config_1.ConfigService);
     const port = configService.get('APP_PORT');
-    await app.listen(port);
+    await app.listen(process.env.port || port);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
