@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Users } from './users.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
