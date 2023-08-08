@@ -10,6 +10,7 @@ import {
   import { UserService } from './users.service';
   import { CreateUserDto } from './users.dto';
   import { Users } from './users.schema';
+import { LoginDto } from './userslogin.dto';
   
   @Controller('users')
   export class UserController {
@@ -29,12 +30,12 @@ import {
       return createdUser;
     }
   
-    @Get(':id')
-    async findUser(
-      @Param('id')
-      id: string,
+    @Get('/login')
+    async signin(
+      @Body()
+      loginDto: LoginDto,
     ): Promise<Users> {
-      return this.users.findUser(id);
+      return this.users.signin(loginDto);
     }
   
     @Delete(':id')
