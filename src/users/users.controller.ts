@@ -30,7 +30,7 @@ import { LoginDto } from './userslogin.dto';
       return createdUser;
     }
   
-    @Get('/login')
+    @Post('/login')
     async signin(
       @Body()
       loginDto: LoginDto,
