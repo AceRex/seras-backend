@@ -22,6 +22,7 @@ AppModule = __decorate([
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
             }),
+            user_module_1.UserModule,
             mongoose_1.MongooseModule.forRootAsync({
                 imports: [config_1.ConfigModule],
                 inject: [config_1.ConfigService],
@@ -32,7 +33,6 @@ AppModule = __decorate([
                 }),
             }),
             organisation_registration_module_1.OrganisationRegistrationModule,
-            user_module_1.UserModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

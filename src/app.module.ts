@@ -12,6 +12,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       isGlobal: true,
     }),
 
+    UserModule,
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -22,7 +23,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       }),
     }),
     OrganisationRegistrationModule,
-    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
