@@ -5,6 +5,7 @@ import { OrganisationRegistrationModule } from './organisation-registration/orga
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -20,6 +21,9 @@ import { UsersModule } from './users/users.module';
         useUnifiedTopology: true,
         useNewUrlParser: true,
       }),
+    }),
+    MulterModule.register({
+      dest: './upload',
     }),
     OrganisationRegistrationModule,
     UsersModule,
