@@ -14,12 +14,15 @@ import { MailService } from './mail.service';
       useFactory: (configService: ConfigService) => ({
         transport: {
           host: configService.get('HOST'),
-          port: 25,
+          port: 143,
           secure: false,
           auth: {
-            user: configService.get('MAIL_USER'),
-            pass: configService.get('MAIL_PASSWORD'),
+            user: configService.get('EMAIL'),
+            pass: configService.get('EMAIL_PASSWORD'),
           },
+          tls: {
+            ciphers:'SSLv3'
+        }
         },
         defaults: {
           from: '"SEARAS AWARD 2023" <noreply@serasaward2023.com>',
@@ -39,4 +42,3 @@ import { MailService } from './mail.service';
   exports: [MailService],
 })
 export class MailModule {}
-

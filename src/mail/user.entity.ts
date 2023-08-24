@@ -1,31 +1,13 @@
-
 export class User {
+  readonly FirstName: string;
 
-  readonly Country: string;
+  readonly MiddleName: string;
 
-  readonly NameOfBusinessOrganization: string;
+  readonly LastName: string;
 
-  readonly EmailOfBusinessOrganization: string;
+  readonly UserEmail: string;
 
-  readonly AddressOfBusinessOrganization: string;
+  readonly UserRole: string;
 
-  readonly NameOfCEOMD: string;
-
-  readonly MultinationalSituated: string;
-
-  readonly OrganisationVision: string;
-
-  readonly CSRSustainabiltyPolicy: string;
-
-  readonly ReportingStandardsAdopted: string[];
-
-  readonly AreasSustainabilityPolicyAddress: string[];
-
-  readonly GoalsAddress: string;
-
-  readonly DecisionsAreTakenBy: string[];
-
-  readonly WhatDeterminesTheAmountOfFunds: string[];
-
-  readonly AwardEntry: string[];
+  readonly Password: string;
 }

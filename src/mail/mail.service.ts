@@ -7,16 +7,17 @@ export class MailService {
   constructor(private mailerService: MailerService) {}
 
   async sendUserConfirmation(user: User) {
-    const url = `serasaward2023/auth`;
+    // const url = `serasaward2023/auth`;
 
     await this.mailerService.sendMail({
-      to: user.EmailOfBusinessOrganization,
+      to: user.UserEmail,
       from: '"No Reply" <noreply@serasaward2023.com>',
       subject: 'Thank you for Registring! We got your registration ',
       template: './UserEmail',
       context: {
-        name: user.NameOfBusinessOrganization,
-        url,
+        name: user.FirstName,
+        password: user.Password,
+        role: user.UserRole
       },
     });
   }

@@ -30,6 +30,7 @@ export class UserService {
     const token = this.jwtService.sign({
       user: newUser.FirstName.concat(newUser.LastName),
     });
+    
     return { token };
   }
 
