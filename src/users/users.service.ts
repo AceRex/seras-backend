@@ -24,14 +24,17 @@ export class UserService {
       user: newUser.FirstName.concat(newUser.LastName),
     });
     return { token };
-  } 
+  }
 
-  async signin(loginDto: LoginDto): Promise<Users> {
+  async signin(loginDto: LoginDto): Promise<{ token: string }> {
     const res = await this.userModel.findOne(loginDto);
     if (!res) {
       throw new UnauthorizedException('!Invalid email or password');
     }
-    return res;
+    const token = this.jwtService.sign({
+      id: loginDto.UserEmail,
+    });
+    return { token };
   }
 
   async deleteUser(id: string): Promise<Users> {

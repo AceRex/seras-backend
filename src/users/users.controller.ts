@@ -34,7 +34,7 @@ import { LoginDto } from './userslogin.dto';
     async signin(
       @Body()
       loginDto: LoginDto,
-    ): Promise<Users> {
+    ): Promise<{ token: string }> {
       return this.users.signin(loginDto);
     }
 
