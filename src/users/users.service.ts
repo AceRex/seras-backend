@@ -26,7 +26,7 @@ export class UserService {
     return { token };
   }
 
-  async signin(loginDto: LoginDto): Promise<{ token: string }> {
+  async signin(loginDto: LoginDto): Promise<{ token: string } & Users> {
     const res = await this.userModel.findOne(loginDto);
     if (!res) {
       throw new UnauthorizedException('!Invalid email or password');
@@ -34,7 +34,7 @@ export class UserService {
     const token = this.jwtService.sign({
       id: loginDto.UserEmail,
     });
-    return { token };
+    return { token, ...res };
   }
 
   async deleteUser(id: string): Promise<Users> {
