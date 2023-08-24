@@ -5,6 +5,7 @@ import * as mongoose from 'mongoose';
 import { CreateUserDto } from './users.dto';
 import { LoginDto } from './userslogin.dto';
 import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UserService {
@@ -19,7 +20,13 @@ export class UserService {
   }
 
   async createNewUser(newUser: Users): Promise<{ token: string }> {
-    const res = await this.userModel.create(newUser);
+    const hashedPassword = await bcrypt.hash(newUser.Password, 8);
+
+    const res = await this.userModel.create({
+      ...newUser,
+      Password: hashedPassword,
+    });
+
     const token = this.jwtService.sign({
       user: newUser.FirstName.concat(newUser.LastName),
     });
