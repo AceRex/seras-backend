@@ -13,7 +13,7 @@ export class Users {
   @Prop()
   LastName: string;
 
-  @Prop()
+  @Prop({ unique: [true, 'Email is already registered'] })
   UserEmail: string;
 
   @Prop()

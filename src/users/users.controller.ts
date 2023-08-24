@@ -25,7 +25,7 @@ import { LoginDto } from './userslogin.dto';
     async createNewUser(
       @Body()
       newUser: CreateUserDto,
-    ): Promise<Users> {
+    ): Promise<{ token: string }> {
       const createdUser = await this.users.createNewUser(newUser);
       return createdUser;
     }
